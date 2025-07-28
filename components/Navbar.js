@@ -1,5 +1,5 @@
 import React from "react";
-import ShinyText from "./ShinyText";
+import Link from "next/link";
 
 const Nav = () => {
   return (
@@ -11,7 +11,8 @@ const Nav = () => {
         <span className="cursor-pointer hover:text-slate-400">Home</span>
         <span className="cursor-pointer hover:text-slate-400">Projects</span>
         <span className="cursor-pointer hover:text-slate-400">About</span>
-        <button className="group relative inline-flex h-[calc(44px+4px)] items-center justify-center rounded-full bg-slate-950 py-1 pl-6 pr-14 font-medium text-neutral-50">
+        
+        <button  className="group relative inline-flex h-[calc(44px+4px)] items-center justify-center rounded-full bg-slate-950 py-1 pl-6 pr-14 font-medium text-neutral-50">
           <span className="z-10 pr-2">Log In</span>
           <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full bg-slate-800 transition-[width] group-hover:w-[calc(100%-8px)]">
             <div className="mr-3.5 flex items-center justify-center">
