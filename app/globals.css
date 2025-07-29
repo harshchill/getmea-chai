@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
 .cards {
-  @apply w-4/5 h-[30vh] bg-slate-800 rounded-lg shadow-lg flex items-center justify-center text-white text-xl font-semibold;
+  @apply w-4/5 h-[40vh] bg-slate-900 flex flex-col p-6 gap-5 items-center justify-center text-white md:mb-8 ;
+}
+
+.line{
+  @apply h-[2px] w-[90%] rounded-full mx-auto my-8 bg-slate-800
 }

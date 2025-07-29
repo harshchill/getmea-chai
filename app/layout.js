@@ -22,12 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`+" overflow-x-hidden"}
         // Add this line
       >
         <div>
           <Nav />
-          <div className="absolute top-0 z-[-2] text-white h-[200vh] w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+          <div className="absolute top-0 z-[-2] text-white h-[230vh] w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
           {children}
           <Footer />
         </div>

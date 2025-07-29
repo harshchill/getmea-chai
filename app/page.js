@@ -1,17 +1,17 @@
 import BlurText from "@/components/BlurText";
+import SpotlightCard from "@/components/SpotlightCard";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="">
-      
       <div className="flex flex-col gap-4 items-center justify-center mt-24 text-white ">
         <BlurText
           text="Get Me a Chai!"
           delay={250}
           animateBy="words"
           direction="top"
-          className="text-4xl text-white font-bold "
+          className="text-5xl text-white font-bold m-4"
         />
         <div>
           A croundfunding platform to fund your favorite Creator with some Chai
@@ -30,12 +30,85 @@ export default function Home() {
             </span>
           </button>
         </div>
-        <div className="line h-[1px] w-[90%] mx-auto bg-slate-200"></div>
+        <div className="line h-[1px] w-[90%] mx-auto my-8 bg-slate-300"></div>
+        <div className="my-6 font-semibold text-2xl">What we do !</div>
         <div className="container w-full md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-5">
-          <div className="cards">f</div>
-          <div className="cards">g</div>
-          <div className="cards">h</div>
-          <div className="cards">j</div>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+        </div>
+        <div className="line "></div>
+        <div className="my-6 font-semibold text-2xl">What You can do!</div>
+        <div className="container w-full md:w-[80%] flex flex-col md:flex-row justify-center items-center gap-5">
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
+          <SpotlightCard
+            className="custom-spotlight-card cards"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            <div className="icon">ICON</div>
+            <div className="content">
+              Hello this the the content which will be inside the card
+            </div>
+          </SpotlightCard>
         </div>
       </div>
     </main>

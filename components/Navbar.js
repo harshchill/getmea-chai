@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="w-full md:w-4/5 flex justify-between items-center  mx-auto mt-4 px-5 p-4 backdrop-blur-[1px] ring-[1px] bg-slate-800/15 ring-slate-700 rounded-lg text-white">
+    <nav className="w-full md:w-4/5  z-20 flex justify-between items-center  mx-auto mt-4 px-5 p-4 backdrop-blur-[1px] ring-[1px] bg-slate-800/15 ring-slate-700 rounded-lg text-white">
       <div>
-        <span className="text-lg font-bold mx-2">Get Me a Chai</span>
+        <span className="text-lg font-bold mx-2">Getmea Chai</span>
       </div>
       <div className="flex items-center gap-5">
         <span className="cursor-pointer hover:text-slate-400">Home</span>
