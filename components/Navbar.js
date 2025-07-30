@@ -5,13 +5,13 @@ const Nav = () => {
   return (
     <nav className="w-full md:w-4/5  z-20 flex justify-between items-center  mx-auto mt-4 px-5 p-4 backdrop-blur-[1px] ring-[1px] bg-slate-800/15 ring-slate-700 rounded-lg text-white">
       <div>
-        <span className="text-lg font-bold mx-2">Getmea Chai</span>
+        <Link href="/">
+        <span className=" flex gap-2 item-center text-lg font-bold mx-2">Getmea Chai <img className="w-8 invert" src="/tea.gif" alt="video"></img></span>
+        </Link>
       </div>
       <div className="flex items-center gap-5">
-        <span className="cursor-pointer hover:text-slate-400">Home</span>
         <span className="cursor-pointer hover:text-slate-400">Projects</span>
-        <span className="cursor-pointer hover:text-slate-400">About</span>
-        
+        <Link href="/login">
         <button  className="group relative inline-flex h-[calc(44px+4px)] items-center justify-center rounded-full bg-slate-950 py-1 pl-6 pr-14 font-medium text-neutral-50">
           <span className="z-10 pr-2">Log In</span>
           <div className="absolute right-1 inline-flex h-10 w-12 items-center justify-end rounded-full bg-slate-800 transition-[width] group-hover:w-[calc(100%-8px)]">
@@ -34,6 +34,7 @@ const Nav = () => {
             </div>
           </div>
         </button>
+        </Link>
       </div>
     </nav>
   );
