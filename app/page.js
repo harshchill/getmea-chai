@@ -68,7 +68,7 @@ export default function Home() {
             className="custom-spotlight-card cards"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <div className="icon"><img className="w-28 invert animate-pulse" src="/fans.gif" alt="video"></img></div>
+            <div className="icon"><img className="w-28 invert animate-pulse" src="/coffee.gif" alt="video"></img></div>
             <div className="content text-center">
               Hello this the the content which will be inside the card
             </div>
@@ -81,7 +81,7 @@ export default function Home() {
             className="custom-spotlight-card cards"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <div className="icon"><img className="w-28 invert animate-pulse" src="/fans.gif" alt="video"></img></div>
+            <div className="icon"><img className="w-28 invert animate-pulse" src="/connect.gif" alt="video"></img></div>
             <div className="content text-center">
               Hello this the the content which will be inside the card
             </div>
@@ -90,7 +90,7 @@ export default function Home() {
             className="custom-spotlight-card cards"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <div className="icon"><img className="w-28 invert animate-pulse" src="/fans.gif" alt="video"></img></div>
+            <div className="icon"><img className="w-28 invert animate-pulse" src="/monetize.gif" alt="video"></img></div>
             <div className="content text-center">
               Hello this the the content which will be inside the card
             </div>
@@ -99,7 +99,7 @@ export default function Home() {
             className="custom-spotlight-card cards"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <div className="icon"><img className="w-28 invert animate-pulse" src="/fans.gif" alt="video"></img></div>
+            <div className="icon"><img className="w-28 invert animate-pulse" src="/secured.gif" alt="video"></img></div>
             <div className="content text-center">
               Hello this the the content which will be inside the card
             </div>
@@ -108,7 +108,7 @@ export default function Home() {
             className="custom-spotlight-card cards"
             spotlightColor="rgba(0, 229, 255, 0.2)"
           >
-            <div className="icon"><img className="w-28 invert animate-pulse" src="/fans.gif" alt="video"></img></div>
+            <div className="icon"><img className="w-28 invert animate-pulse" src="/support.gif" alt="video"></img></div>
             <div className="content text-center">
               Hello this the the content which will be inside the card
             </div>
