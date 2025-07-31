@@ -3,7 +3,7 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <div className="absolute top-0 z-[-2] text-white h-[100vh] w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+      <div className="absolute top-0 z-[-2] text-white h-[200vh] md:h-[100vh] w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
       <div className="text-center text-white text-2xl font-bold mt-8 m-4"> Log In to enjoy the features</div>
       <div className="flex flex-col gap-2 min-h-[60vh] items-center p-4">
         <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
