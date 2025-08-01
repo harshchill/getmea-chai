@@ -1,10 +1,22 @@
-import React from "react";
+"use client";
+import React ,{useEffect} from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const { data: session } = useSession();
+  const router =useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session]);
   return (
-    <div>
-      <div className="absolute top-0 z-[-2] text-white h-[200vh] md:h-[100vh] w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
-      <div className="text-center text-white text-2xl font-bold mt-8 m-4"> Log In to enjoy the features</div>
+    <div><div className="text-center text-white text-2xl font-bold mt-8 m-4">
+        {" "}
+        Log In to enjoy the features
+      </div>
       <div className="flex flex-col gap-2 min-h-[60vh] items-center p-4">
         <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
           <svg
@@ -150,7 +162,12 @@ const page = () => {
           <span>Continue with Facebook</span>
         </button>
 
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <button
+          onClick={() => {
+            signIn("GitHub");
+          }}
+          className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        >
           <svg
             className="h-6 w-6 mr-2"
             xmlns="http://www.w3.org/2000/svg"

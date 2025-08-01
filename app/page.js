@@ -4,7 +4,6 @@ import SpotlightCard from "@/components/SpotlightCard";
 export default function Home() {
   return (
     <main className="">
-      <div className="absolute top-0 z-[-2] text-white h-[230vh] w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
 
       <div className="flex flex-col gap-4 items-center justify-center mt-24 p-2 text-white ">
         <div className="flex gap-2">

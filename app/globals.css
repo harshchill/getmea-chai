@@ -7,3 +7,11 @@
 .line{
   @apply h-[2px] w-[90%] rounded-full mx-auto my-8 bg-slate-800
 }
+
+.input{
+  @apply border border-slate-300 p-1 bg-slate-200 rounded-md text-slate-900
+}
+
+.input-dark{
+  @apply border  border-slate-500 py-2 p-2 bg-slate-800 rounded-md text-slate-300
+}
