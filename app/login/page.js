@@ -17,7 +17,7 @@ const page = () => {
         {" "}
         Log In to enjoy the features
       </div>
-      <div className="flex flex-col gap-2 min-h-[60vh] items-center p-4">
+      <div className="flex flex-col gap-2 min-h-[65vh] items-center p-4">
         <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
           <svg
             className="h-6 w-6 mr-2"

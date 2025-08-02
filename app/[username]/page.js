@@ -5,7 +5,7 @@ const username = ({ params }) => {
     <div>
       <div className="relative">
         <img
-          className=" mt-4 w-screen h-[40vh] object-cover "
+          className=" mt-4 z-10 w-screen h-[40vh] object-cover "
           src="https://www.prodraw.net/fb_cover/images/fb_cover_65.jpg"
           alt=""
         />
