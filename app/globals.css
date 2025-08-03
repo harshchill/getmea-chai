@@ -13,5 +13,5 @@
 }
 
 .input-dark{
-  @apply border  border-slate-500 py-2 p-2 bg-slate-800 rounded-md text-slate-300
+  @apply border w-4/5  border-slate-500 py-1 p-2 bg-slate-800 rounded-md text-slate-300
 }
