@@ -5,17 +5,20 @@ import Script from "next/script";
 import { initiate } from "@/actions/userActions";
 
 const PaymentPage = ({ username }) => {
+
+  // useState to manage paymentform 
   const [paymentform, setpaymentform] = useState({
     name: "",
     amount: "",
     message: "",
   });
 
+  // handle change in the input fields
   const handlechange = (e) => {
     setpaymentform({ ...paymentform, [e.target.name]: e.target.value });
-    console.log(paymentform);
   };
 
+  // main payment function
   const pay = async (amount) => {
 
     // check if name is provided or not
@@ -24,6 +27,7 @@ const PaymentPage = ({ username }) => {
     }
 
     //get orderID from initiate function
+    // initiate function returns an order object
     let a = await initiate(amount, username, paymentform);
     let orderID = a.id;
     var options = {
@@ -32,13 +36,13 @@ const PaymentPage = ({ username }) => {
       currency: "INR",
       name: "Get me a Chai",
       description: "Test Transaction",
-      image: "https://example.com/your_logo",
+      image: "https://i.pinimg.com/736x/1c/fd/ee/1cfdeeeaff94812b893e8000b992b472.jpg",
       order_id: orderID, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: 'process.env.NEXT_PUBLIC_URL/api/razorpay',
+      callback_url: '/api/razorpay',
       prefill: {
-        name: "Gaurav Kumar",
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000",
+        name: "Harsh Mahto",
+        email: "harshmahto02@gmail.com",
+        contact: "9992100001",
       },
       notes: {
         address: "Razorpay Corporate Office",

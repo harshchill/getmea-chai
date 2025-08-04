@@ -1,10 +1,11 @@
-"use server";
+"use server"
 import Razorpay from "razorpay";
 import connectDB from "@/db/connectDb";
 import payment from "@/models/payment";
-import User from "@/models/user";
 
 export const initiate = async (amount, to_username, paymentform) => {
+
+  // connect to the database
   await connectDB();
   var instance = new Razorpay({
     key_id: process.env.NEXT_PUBLIC_KEY_ID,
@@ -16,10 +17,11 @@ export const initiate = async (amount, to_username, paymentform) => {
     currency: "INR"
   };
 
+
+  //create an order in razorpay
   let x = await instance.orders.create(options)
 
   //a payment object which shows pending payment in the database
-
   await payment.create({
     oid : x.id,
     amount: amount,
