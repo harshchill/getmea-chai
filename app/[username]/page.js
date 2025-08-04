@@ -2,9 +2,10 @@
 import React from "react";
 import PaymentPage from "@/components/PaymentPage";
 
-const username = async ({ params }) => {
+const username = async ({ params ={} }) => {
+  const b = await params
   return (
-    <PaymentPage username={params.username}/>
+    <PaymentPage username={b.username}/>
   );
 };
 
