@@ -4,7 +4,7 @@ import payment from "@/models/payment";
 import connectDB from "@/db/connectDb";
 
 // this page is for validating the payment and updating the [done to true] (in DB)(have context of payment schema) after payment is completed
-// after payment razorpay send a req on this api , have to handle it
+// after payment razorpay sends a callback req on this api , have to handle it
 //most info will be in that req body
 
 export const POST = async (req) =>{

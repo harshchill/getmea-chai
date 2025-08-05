@@ -2,6 +2,7 @@
 import Razorpay from "razorpay";
 import connectDB from "@/db/connectDb";
 import payment from "@/models/payment";
+import { User } from "@/models/user";
 
 export const initiate = async (amount, to_username, paymentform) => {
 
@@ -32,3 +33,18 @@ export const initiate = async (amount, to_username, paymentform) => {
 
   return x;
 };
+
+export const fetchuser = async (username) => {
+  connectDB()
+  const u = await User.findOne({username : username})
+  console.log("user",u)
+  let user =  u.toObject({flattenObjectIds : true}) 
+  return user;
+}
+
+export const fetchpayments = async (username) => {
+  connectDB();
+   // find all payments sorted by decreasing order of amount and flatten object ids
+  let p = await payment.find({ to_user: username, done:true }).sort({ amount: -1 }).limit(10).lean()
+  return p
+}

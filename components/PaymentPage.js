@@ -1,26 +1,42 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Script from "next/script";
-import { initiate } from "@/actions/userActions";
+import { initiate, fetchuser, fetchpayments } from "@/actions/userActions";
 
 const PaymentPage = ({ username }) => {
-
-  // useState to manage paymentform 
+  // useState to manage paymentform
   const [paymentform, setpaymentform] = useState({
     name: "",
     amount: "",
     message: "",
   });
+  const [currentUser, setcurrentUser] = useState({});
+  const [payments, setpayments] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // handle change in the input fields
   const handlechange = (e) => {
     setpaymentform({ ...paymentform, [e.target.name]: e.target.value });
   };
 
+  //fetch data of payment and user
+  const fetchData = async () => {
+    let u = await fetchuser(username);
+    setcurrentUser(u);
+
+    let p = await fetchpayments(username);
+    setpayments(p);
+
+    console.log("User Data: ", u);
+    console.log("Payments Data: ", p);
+  };
+
   // main payment function
   const pay = async (amount) => {
-
     // check if name is provided or not
     if (!paymentform.name || paymentform.name.trim() === "") {
       alert("Please enter your name before making a payment.");
@@ -36,9 +52,10 @@ const PaymentPage = ({ username }) => {
       currency: "INR",
       name: "Get me a Chai",
       description: "Test Transaction",
-      image: "https://i.pinimg.com/736x/1c/fd/ee/1cfdeeeaff94812b893e8000b992b472.jpg",
+      image:
+        "https://i.pinimg.com/736x/1c/fd/ee/1cfdeeeaff94812b893e8000b992b472.jpg",
       order_id: orderID, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: '/api/razorpay',
+      callback_url: "/api/razorpay",
       prefill: {
         name: "Harsh Mahto",
         email: "harshmahto02@gmail.com",
@@ -59,7 +76,7 @@ const PaymentPage = ({ username }) => {
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
       <div>
-        <div className="relative">
+        <div className="-z-10 relative">
           <img
             className=" mt-4 z-10 w-screen h-[40vh] object-cover "
             src="https://www.prodraw.net/fb_cover/images/fb_cover_65.jpg"
@@ -87,16 +104,17 @@ const PaymentPage = ({ username }) => {
               Supporters
             </span>
             <ul className="w-[96%]  flex flex-col gap-1 mt-4 h-[34vh] mx-auto overflow-y-auto text-white ">
-              <li className="flex gap-1 items-center text-slate-400">
+              {payments.map((p,u) =>{
+                return(
+              <li key={u} className="flex gap-1 items-center text-slate-400">
                 <img className="invert" width={30} src="./profile.gif" alt="" />
-                <span className="text-white font-bold">Harsh</span> donated{" "}
-                <span className="text-white font-bold">200$</span> with a
-                message "
+                <span className="text-white font-bold">{p.name}</span> donated{" "}
+                <span className="text-white font-bold">₹{(p.amount)/100}</span> with a
+                message 
                 <span className="text-white font-semibold">
-                  love you harsh bhaiii
+                  "{p.message}"
                 </span>
-                "
-              </li>
+              </li>)})}
             </ul>
           </div>
           <div className="bg-slate-800 rounded-lg p-2 w-1/2 h-full ring ring-slate-600">
