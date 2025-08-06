@@ -104,17 +104,31 @@ const PaymentPage = ({ username }) => {
               Supporters
             </span>
             <ul className="w-[96%]  flex flex-col gap-1 mt-4 h-[34vh] mx-auto overflow-y-auto text-white ">
-              {payments.map((p,u) =>{
-                return(
-              <li key={u} className="flex gap-1 items-center text-slate-400">
-                <img className="invert" width={30} src="./profile.gif" alt="" />
-                <span className="text-white font-bold">{p.name}</span> donated{" "}
-                <span className="text-white font-bold">₹{(p.amount)/100}</span> with a
-                message 
-                <span className="text-white font-semibold">
-                  "{p.message}"
-                </span>
-              </li>)})}
+              {/* dynamically display supporters  */}
+              {payments.map((p, u) => {
+                return (
+                  <li
+                    key={u}
+                    className="flex gap-1 items-center text-slate-400"
+                  >
+                    <img
+                      className="invert"
+                      width={30}
+                      src="./profile.gif"
+                      alt=""
+                    />
+                    <span className="text-white font-bold">{p.name}</span>{" "}
+                    donated{" "}
+                    <span className="text-white font-bold">
+                      ₹{p.amount / 100}
+                    </span>{" "}
+                    with a message
+                    <span className="text-white font-semibold">
+                      "{p.message}"
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="bg-slate-800 rounded-lg p-2 w-1/2 h-full ring ring-slate-600">
