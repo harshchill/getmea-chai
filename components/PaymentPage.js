@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Script from "next/script";
-import { initiate, fetchuser, fetchpayments } from "@/actions/userActions";
+import { ToastContainer, toast } from 'react-toastify';
+import { Bounce } from "react-toastify";
+import { initiate, fetchuser, fetchpayments, fetchuserbyEmail } from "@/actions/userActions";
 
 const PaymentPage = ({ username }) => {
   // useState to manage paymentform
@@ -14,9 +17,28 @@ const PaymentPage = ({ username }) => {
   const [currentUser, setcurrentUser] = useState({});
   const [payments, setpayments] = useState([]);
 
+  const searchParams = useSearchParams();
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(()=>{
+    if(searchParams.get("paymentdone")=="true"){
+
+      toast.success('thanks for your donation!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
+  },[]);
 
   // handle change in the input fields
   const handlechange = (e) => {
@@ -25,14 +47,12 @@ const PaymentPage = ({ username }) => {
 
   //fetch data of payment and user
   const fetchData = async () => {
-    let u = await fetchuser(username);
+    let u = await fetchuserbyEmail(email);
     setcurrentUser(u);
 
     let p = await fetchpayments(username);
     setpayments(p);
 
-    console.log("User Data: ", u);
-    console.log("Payments Data: ", p);
   };
 
   // main payment function
@@ -47,7 +67,7 @@ const PaymentPage = ({ username }) => {
     let a = await initiate(amount, username, paymentform);
     let orderID = a.id;
     var options = {
-      key: process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
+      key: currentUser.razorpayid, // Enter the Key ID generated from the Dashboard
       amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Get me a Chai",
@@ -57,8 +77,8 @@ const PaymentPage = ({ username }) => {
       order_id: orderID, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       callback_url: "/api/razorpay",
       prefill: {
-        name: "Harsh Mahto",
-        email: "harshmahto02@gmail.com",
+        name: currentUser.name,
+        email: currentUser.email,
         contact: "9992100001",
       },
       notes: {
@@ -73,37 +93,51 @@ const PaymentPage = ({ username }) => {
   };
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
       <div>
         <div className="-z-10 relative">
           <img
-            className=" mt-4 z-10 w-screen h-[40vh] object-cover "
-            src="https://www.prodraw.net/fb_cover/images/fb_cover_65.jpg"
+            className=" mt-4 z-10 w-screen h-[52vh] object-cover "
+            src={currentUser.coverpic}
             alt=""
           />
           <img
-            className="absolute left-[45%] w-[150px] rounded-full ring-2 ring-slate-300 -bottom-20"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTubmn3UHtYUiows8ASp8bOqKOWE7rmQqtFmQ&s"
+            className="absolute left-[45%] size-40 object-cover rounded-full ring-2 ring-slate-300 -bottom-20"
+            src={currentUser.profilepic}
             alt=""
           />
         </div>
         <div className="flex flex-col gap-1 justify-center items-center mt-24  text-white">
           <span className="text-3xl font-bold m-2">@{username}</span>
           <span className="text-slate-400">
-            Make 3D website compoents for you
+            Get {username} a chai
           </span>
           <span className="text-slate-400">
-            620 Followers . 43 Posts . 4563800 Views
+           {payments.length} Payments | Total Fund Raised: ₹{payments.reduce((sum, p) => sum + (p.amount || 0), 0) / 100}
           </span>
         </div>
-        <div className="mt-16 h-[50vh]  flex justify-center items-center gap-8 ">
-          <div className="bg-slate-800 rounded-lg p-2 w-[40%] h-full ring ring-slate-600 ">
+        <div className="mt-16 md:h-[50vh] flex-col md:flex-row flex justify-center items-center gap-8 ">
+          <div className="bg-slate-800 rounded-lg p-2 w-[40%] min-h-full ring ring-slate-600 ">
             <span className="text-lg text-slate-200 font-semibold flex flex-col  items-center">
               <img className="invert" width={40} src="./fans.gif" alt="" />{" "}
               Supporters
             </span>
             <ul className="w-[96%]  flex flex-col gap-1 mt-4 h-[34vh] mx-auto overflow-y-auto text-white ">
+              {payments.length == 0 && <li> gimme some fund bro</li>}
               {/* dynamically display supporters  */}
               {payments.map((p, u) => {
                 return (
@@ -131,7 +165,7 @@ const PaymentPage = ({ username }) => {
               })}
             </ul>
           </div>
-          <div className="bg-slate-800 rounded-lg p-2 w-1/2 h-full ring ring-slate-600">
+          <div className="bg-slate-800 rounded-lg p-2 w-1/2 min-h-full ring ring-slate-600">
             <span className="text-lg text-slate-200 font-semibold flex flex-col  items-center">
               <img className="invert" width={40} src="./fund.gif" alt="" /> Fund
               Creator

@@ -29,7 +29,7 @@ export const POST = async (req) =>{
     if(xx){
          await payment.findOneAndUpdate(
             { oid: body.razorpay_order_id },{done : true} ,{new : true})
-            return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/${p.to_user}`);
+            return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/${p.to_user}?paymentdone=true`);
     }
     else{
         return NextResponse.json({success: false, message:"Payment Verification Failed" })
