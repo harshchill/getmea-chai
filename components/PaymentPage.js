@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from "react-toastify";
-import { initiate, fetchuser, fetchpayments, fetchuserbyEmail } from "@/actions/userActions";
+import { initiate, fetchuser, fetchpayments} from "@/actions/userActions";
 
 const PaymentPage = ({ username }) => {
   // useState to manage paymentform
@@ -47,7 +47,7 @@ const PaymentPage = ({ username }) => {
 
   //fetch data of payment and user
   const fetchData = async () => {
-    let u = await fetchuserbyEmail(email);
+    let u = await fetchuser(username);
     setcurrentUser(u);
 
     let p = await fetchpayments(username);
