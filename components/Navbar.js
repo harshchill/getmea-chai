@@ -9,7 +9,7 @@ const Nav = () => {
   const [showDropdown, setshowDropdown] = useState(false);
   
   return (
-    <nav className="w-full z-20 flex justify-between items-center mx-auto mt-4 px-4 md:px-8 p-2 backdrop-blur-[1px] ring-[1px] bg-slate-800/15 ring-slate-700 rounded-lg text-white">
+    <nav className="w-full md:w-4/5 z-20 flex justify-between items-center mx-auto md:mt-4 px-4 md:px-8 p-2 backdrop-blur-[1px] ring-[1px] bg-slate-800/15 ring-slate-700 md:rounded-lg text-white">
       <div>
         <Link href="/">
           <span className="flex gap-2 items-center text-base md:text-lg font-bold">
