@@ -19,34 +19,47 @@ const formatINR = (paise = 0) => {
 };
 
 export default async function ExplorePage() {
-  await connectDB();
+  let creators = [];
 
-  // Aggregate total raised per user (only completed payments)
-  const totals = await payment.aggregate([
-    { $match: { done: true } },
-    { $group: { _id: "$to_user", totalAmount: { $sum: "$amount" }, count: { $sum: 1 } } },
-  ]);
+  try {
+    // Only connect to DB if not in build time
+    if (process.env.NODE_ENV !== 'production' || process.env.MONGODB_URI) {
+      await connectDB();
 
-  const usernameToTotals = new Map(
-    totals.map((t) => [t._id, { totalAmount: t.totalAmount || 0, count: t.count || 0 }])
-  );
+      // Aggregate total raised per user (only completed payments)
+      const totals = await payment.aggregate([
+        { $match: { done: true } },
+        { $group: { _id: "$to_user", totalAmount: { $sum: "$amount" }, count: { $sum: 1 } } },
+      ]);
 
-  // Fetch users
-  const users = await User.find({}, "username name profilepic coverpic").lean();
+      const usernameToTotals = new Map(
+        totals.map((t) => [t._id, { totalAmount: t.totalAmount || 0, count: t.count || 0 }])
+      );
 
-  // Build display list
-  const creators = users
-    .map((u) => {
-      const stats = usernameToTotals.get(u.username) || { totalAmount: 0, count: 0 };
-      return {
-        username: u.username,
-        name: u.name || u.username,
-        profilepic: u.profilepic || "/profile.gif",
-        totalAmount: stats.totalAmount,
-        count: stats.count,
-      };
-    })
-    .sort((a, b) => b.totalAmount - a.totalAmount);
+      // Fetch users
+      const users = await User.find({}, "username name profilepic coverpic").lean();
+
+      // Build display list
+      creators = users
+        .map((u) => {
+          const stats = usernameToTotals.get(u.username) || { totalAmount: 0, count: 0 };
+          return {
+            username: u.username,
+            name: u.name || u.username,
+            profilepic: u.profilepic || "/profile.gif",
+            totalAmount: stats.totalAmount,
+            count: stats.count,
+          };
+        })
+        .sort((a, b) => b.totalAmount - a.totalAmount);
+    }
+  } catch (error) {
+    console.error('Error connecting to database:', error);
+    // During build, don't fail - just continue with empty creators list
+    if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
+      console.warn('MongoDB URI not found, showing empty creators list during build');
+    }
+  }
 
   return (
     <main className="text-white">

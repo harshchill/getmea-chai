@@ -2,14 +2,14 @@ import mongoose from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Chai-addicts', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Chai-addicts');
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(error.message);
-    process.exit(1);
+    console.error('MongoDB connection error:', error.message);
+    // Don't exit process during build, just log the error
+    if (process.env.NODE_ENV === 'production') {
+      console.error('MongoDB connection failed in production');
+    }
   }
 };
 
