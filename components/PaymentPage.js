@@ -6,6 +6,7 @@ import Script from "next/script";
 import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from "react-toastify";
 import { initiate, fetchuser, fetchpayments} from "@/actions/userActions";
+import Router, { useRouter } from "next/navigation";
 
 const PaymentPage = ({ username }) => {
   // useState to manage paymentform
@@ -18,6 +19,7 @@ const PaymentPage = ({ username }) => {
   const [payments, setpayments] = useState([]);
 
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     fetchData();

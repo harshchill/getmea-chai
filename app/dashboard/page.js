@@ -68,6 +68,19 @@ const dashboard = () => {
       theme: "light",
       transition: Bounce,
     });
+    
+    toast.warning('Please Reload your page!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+    
   };
 
   return (
@@ -130,7 +143,7 @@ const dashboard = () => {
         <div>Razor Pay ID</div>
         <input
           className="input"
-          type="text"
+          type="password"
           name="razorpayid"
           value={form.razorpayid}
           onChange={handleChange}
@@ -138,7 +151,7 @@ const dashboard = () => {
         <div>Razor Pay Secret</div>
         <input
           className="input"
-          type="text"
+          type="password"
           name="razorpaysecret"
           value={form.razorpaysecret}
           onChange={handleChange}
