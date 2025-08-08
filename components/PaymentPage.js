@@ -160,7 +160,7 @@ const PaymentPage = ({ username }) => {
                     </span>{" "}
                     with a message
                     <span className="text-white font-semibold">
-                      "{p.message}"
+                      &quot;{p.message}&quot;
                     </span>
                   </li>
                 );

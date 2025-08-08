@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Bounce } from "react-toastify";
 import { fetchuser, updateUser } from "@/actions/userActions";
 
-const dashboard = () => {
+const Dashboard = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -200,4 +200,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default Dashboard;

@@ -65,14 +65,14 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-slate-300 hover:text-white transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/terms" className="text-slate-300 hover:text-white transition-colors">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li className="text-slate-300">
                 Powered by Razorpay
