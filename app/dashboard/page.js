@@ -84,7 +84,7 @@ const dashboard = () => {
   };
 
   return (
-    <div className="text-white">
+    <div className="text-white min-h-screen">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -98,71 +98,104 @@ const dashboard = () => {
         theme="light"
         transition={Bounce}
       />
-      <div className="text-center mt-6 text-2xl font-semibold">
-        Welcome to your dashboard
+      <div className="container mx-auto px-4 md:px-8 py-6">
+        <div className="text-center mb-8">
+          <h1 className="text-2xl md:text-3xl font-semibold mb-2">Welcome to your dashboard</h1>
+          <p className="text-slate-300 text-sm md:text-base">Create and customize your creator page</p>
+        </div>
+        
+        <div className="max-w-2xl mx-auto">
+          <form
+            className="flex flex-col gap-6 form min-h-[50vh] w-full p-6 md:p-8 backdrop-blur-[2px] border border-slate-400 rounded-lg"
+            onSubmit={handleSubmit}
+          >
+            <div className="text-center font-bold text-lg md:text-xl mb-4">Create Your Page</div>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Enter name</label>
+                <input
+                  className="input w-full"
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your display name"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Enter Username</label>
+                <input
+                  className="input w-full"
+                  type="text"
+                  name="username"
+                  value={form.username}
+                  onChange={handleChange}
+                  required
+                  placeholder="your-username"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Profile URL</label>
+                <input
+                  className="input w-full"
+                  type="text"
+                  name="profilepic"
+                  value={form.profilepic}
+                  onChange={handleChange}
+                  placeholder="https://example.com/profile.jpg"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Cover URL</label>
+                <input
+                  className="input w-full"
+                  type="text"
+                  name="coverpic"
+                  value={form.coverpic}
+                  onChange={handleChange}
+                  placeholder="https://example.com/cover.jpg"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Razor Pay ID</label>
+                <input
+                  className="input w-full"
+                  type="password"
+                  name="razorpayid"
+                  value={form.razorpayid}
+                  onChange={handleChange}
+                  placeholder="rzp_test_..."
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-2">Razor Pay Secret</label>
+                <input
+                  className="input w-full"
+                  type="password"
+                  name="razorpaysecret"
+                  value={form.razorpaysecret}
+                  onChange={handleChange}
+                  placeholder="Your Razorpay secret key"
+                />
+              </div>
+            </div>
+            
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-600 rounded-lg mt-6 w-full px-4 py-3 text-white font-semibold transition-colors"
+            >
+              Save
+            </button>
+          </form>
+        </div>
       </div>
-      <form
-        className="flex flex-col gap-4 form min-h-[50vh] w-1/3 mx-auto m-4 p-4 backdrop-blur-[2px] border border-slate-400 rounded-md"
-        onSubmit={handleSubmit}
-      >
-        <div className="text-center font-bold">Create Your page</div>
-        <div>Enter name</div>
-        <input
-          className="input"
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <div>Enter Username</div>
-        <input
-          className="input"
-          type="text"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-          required
-        />
-        <div>Profile URL</div>
-        <input
-          className="input"
-          type="text"
-          name="profilepic"
-          value={form.profilepic}
-          onChange={handleChange}
-        />
-        <div>Cover URL</div>
-        <input
-          className="input"
-          type="text"
-          name="coverpic"
-          value={form.coverpic}
-          onChange={handleChange}
-        />
-        <div>Razor Pay ID</div>
-        <input
-          className="input"
-          type="password"
-          name="razorpayid"
-          value={form.razorpayid}
-          onChange={handleChange}
-        />
-        <div>Razor Pay Secret</div>
-        <input
-          className="input"
-          type="password"
-          name="razorpaysecret"
-          value={form.razorpaysecret}
-          onChange={handleChange}
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-600 rounded-lg mt-4 w-full px-4 py-1 "
-        >
-          Save
-        </button>
-      </form>
     </div>
   );
 };

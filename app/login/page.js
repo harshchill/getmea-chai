@@ -12,15 +12,18 @@ const page = () => {
       router.push("/dashboard");
     }
   }, [session]);
+  
   return (
-    <div><div className="text-center text-white text-2xl font-bold mt-8 m-4">
-        {" "}
-        Log In to enjoy the features
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
+      <div className="text-center text-white mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold mb-2">Log In to enjoy the features</h1>
+        <p className="text-slate-300 text-sm md:text-base">Choose your preferred login method</p>
       </div>
-      <div className="flex flex-col gap-2 min-h-[65vh] items-center p-4">
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+      
+      <div className="flex flex-col gap-4 w-full max-w-md">
+        <button className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="-0.5 0 48 48"
@@ -70,9 +73,9 @@ const page = () => {
           <span>Continue with Google</span>
         </button>
 
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <button className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 -2 44 44"
@@ -100,9 +103,9 @@ const page = () => {
           <span>Continue with LinkedIn</span>
         </button>
 
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <button className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 -4 48 48"
@@ -131,9 +134,9 @@ const page = () => {
           <span>Continue with Twitter</span>
         </button>
 
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <button className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 48 48"
@@ -166,10 +169,10 @@ const page = () => {
           onClick={() => {
             signIn("GitHub");
           }}
-          className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
         >
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 73 73"
@@ -210,9 +213,9 @@ const page = () => {
           <span>Continue with Github</span>
         </button>
 
-        <button className="flex w-1/5 items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <button className="flex w-full items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
           <svg
-            className="h-6 w-6 mr-2"
+            className="h-6 w-6 mr-3"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="-1.5 0 20 20"
