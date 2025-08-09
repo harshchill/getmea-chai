@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </SessionWrapper>
+        <Analytics />
       </body>
     </html>
   );
