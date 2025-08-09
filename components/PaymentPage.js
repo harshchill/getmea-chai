@@ -113,12 +113,12 @@ const PaymentPage = ({ username }) => {
       <div>
         <div className="-z-10 relative">
           <img
-            className=" mt-4 z-10 w-screen h-[40vh] md:h-[52vh] object-cover "
+            className=" mt-4 z-10 w-screen h-[38vh] md:h-[52vh] object-cover "
             src={currentUser.coverpic}
             alt=""
           />
           <img
-            className="absolute left-[40%] md:left-[45%] size-40 object-cover rounded-full ring-2 ring-slate-300 -bottom-20"
+            className="absolute left-[36%] md:left-[45%] size-40 object-cover rounded-full ring-2 ring-slate-300 -bottom-20"
             src={currentUser.profilepic}
             alt=""
           />
@@ -204,7 +204,7 @@ const PaymentPage = ({ username }) => {
                 Fund
               </button>
             </div>
-            <div className="w-1/2 mx-auto flex justify-around items-center mt-2 text-slate-400">
+            <div className="w-4/5 md:w-1/2 mx-auto flex justify-around items-center mt-2 text-slate-400">
               <button
                 onClick={() => pay(1000)}
                 className="bg-slate-700 border border-slate-400 px-2 py-1 rounded-md"
