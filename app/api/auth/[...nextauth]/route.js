@@ -13,6 +13,7 @@ export const authoptions = NextAuth({
     }),
     // ...add more providers here
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       if (account.provider === "github") {
