@@ -113,12 +113,12 @@ const PaymentPage = ({ username }) => {
       <div>
         <div className="-z-10 relative">
           <img
-            className=" mt-4 z-10 w-screen h-[52vh] object-cover "
+            className=" mt-4 z-10 w-screen h-[40vh] md:h-[52vh] object-cover "
             src={currentUser.coverpic}
             alt=""
           />
           <img
-            className="absolute left-[45%] size-40 object-cover rounded-full ring-2 ring-slate-300 -bottom-20"
+            className="absolute left-[40%] md:left-[45%] size-40 object-cover rounded-full ring-2 ring-slate-300 -bottom-20"
             src={currentUser.profilepic}
             alt=""
           />
@@ -132,8 +132,8 @@ const PaymentPage = ({ username }) => {
            {payments.length} Payments | Total Fund Raised: ₹{payments.reduce((sum, p) => sum + (p.amount || 0), 0) / 100}
           </span>
         </div>
-        <div className="mt-16 md:h-[50vh] flex-col md:flex-row flex justify-center items-center gap-8 ">
-          <div className="bg-slate-800 rounded-lg p-2 w-[40%] min-h-full ring ring-slate-600 ">
+        <div className="mt-16 p-2 md:h-[50vh] flex-col md:flex-row flex justify-center items-center gap-8 ">
+          <div className="bg-slate-800 rounded-lg p-2 w-full md:w-[40%] min-h-full ring ring-slate-600 ">
             <span className="text-lg text-slate-200 font-semibold flex flex-col  items-center">
               <img className="invert" width={40} src="./fans.gif" alt="" />{" "}
               Supporters
@@ -167,7 +167,7 @@ const PaymentPage = ({ username }) => {
               })}
             </ul>
           </div>
-          <div className="bg-slate-800 rounded-lg p-2 w-1/2 min-h-full ring ring-slate-600">
+          <div className="bg-slate-800 rounded-lg p-2 w-full md:w-1/2 min-h-full ring ring-slate-600">
             <span className="text-lg text-slate-200 font-semibold flex flex-col  items-center">
               <img className="invert" width={40} src="./fund.gif" alt="" /> Fund
               Creator
